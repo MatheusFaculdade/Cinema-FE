@@ -27,6 +27,11 @@ export class SessaoService {
   }
 
   async create(dto: CreateSessaoDto) {
+    const filme = await this.prisma.filme.findUnique({ where: { id: dto.filmeId } });
+    const sala = await this.prisma.sala.findUnique({ where: { id: dto.salaId } });
+
+    if (!filme) throw new Error('Filme não encontrado');
+    if (!sala) throw new Error('Sala não encontrada');
     return this.prisma.sessao.create({
       data: {
         filmeId: dto.filmeId,
