@@ -31,7 +31,7 @@ export class SessaoService {
       data: {
         filmeId: dto.filmeId,
         salaId: dto.salaId,
-        dataHora: new Date(dto.dataHora),
+        dataHora: dto.dataHora,
         preco: dto.preco,
         idioma: dto.idioma,
         formato: dto.formato,
@@ -45,7 +45,7 @@ export class SessaoService {
       data: {
         filmeId: dto.filmeId,
         salaId: dto.salaId,
-        dataHora: new Date(dto.dataHora),
+        dataHora: dto.dataHora,
         preco: dto.preco,
         idioma: dto.idioma,
         formato: dto.formato,
