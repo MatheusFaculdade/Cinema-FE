@@ -8,7 +8,16 @@ export class IngressoService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-    return this.prisma.ingresso.findMany();
+    return this.prisma.ingresso.findMany({
+      include: {
+        sessao: {
+          include: {
+            filme: true,
+            sala: true,
+          },
+        },
+      },
+    });
   }
 
   findOne(id: string) {
